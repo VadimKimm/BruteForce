@@ -30,11 +30,15 @@ class BruteForceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.bruteForce(passwordToUnlock: "1!gr")
+        setupView()
     }
 
     //MARK: - Functions -
+
+    private func setupView() {
+        passwordLabel.text = Strings.passwordLabelText
+        activityIndicator.hidesWhenStopped = true
+    }
 
     private func generatePassword() -> String {
         let allowedCharacters: [String] = String().printable.map { String($0) }
