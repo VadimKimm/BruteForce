@@ -17,25 +17,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-cd-RKK">
-                                <rect key="frame" x="192" y="483" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-cd-RKK">
+                                <rect key="frame" x="43" y="517" width="127" height="30"/>
+                                <state key="normal" title="Change view color"/>
                                 <connections>
-                                    <action selector="onBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XD4-sb-XPE"/>
+                                    <action selector="changeViewColorTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WeP-jt-RdJ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-or-eUz">
+                                <rect key="frame" x="158" y="422" width="110" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="fMe-F4-Zfi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az2-R6-dnK">
+                                <rect key="frame" x="150" y="366" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TcT-bd-5SQ">
+                                <rect key="frame" x="248" y="367" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nP9-hM-E8h">
+                                <rect key="frame" x="259" y="517" width="113" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Guess password"/>
+                                <connections>
+                                    <action selector="guessPasswordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YCl-WR-aWx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lIv-or-eUz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="158" id="6dd-75-nF1"/>
+                            <constraint firstItem="3g4-cd-RKK" firstAttribute="top" secondItem="lIv-or-eUz" secondAttribute="bottom" constant="61" id="76I-57-4j2"/>
+                            <constraint firstItem="az2-R6-dnK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="Bex-En-Twm"/>
+                            <constraint firstItem="3g4-cd-RKK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="Wj6-GA-UfD"/>
+                            <constraint firstItem="lIv-or-eUz" firstAttribute="top" secondItem="az2-R6-dnK" secondAttribute="bottom" constant="35" id="bOQ-Fk-Rgj"/>
+                            <constraint firstItem="az2-R6-dnK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="322" id="cEa-XK-Xjs"/>
+                            <constraint firstItem="nP9-hM-E8h" firstAttribute="top" secondItem="lIv-or-eUz" secondAttribute="bottom" constant="61" id="gRo-YA-G73"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nP9-hM-E8h" secondAttribute="trailing" constant="42" id="nbP-vV-8Yn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TcT-bd-5SQ" secondAttribute="trailing" constant="146" id="ug3-6T-q9v"/>
+                            <constraint firstItem="TcT-bd-5SQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="323" id="vz7-8e-Oww"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="button" destination="3g4-cd-RKK" id="yGm-KB-boF"/>
+                        <outlet property="activityIndicator" destination="TcT-bd-5SQ" id="DoN-FY-wuR"/>
+                        <outlet property="changeViewColorButton" destination="3g4-cd-RKK" id="nix-od-Gbq"/>
+                        <outlet property="guessPasswordButton" destination="nP9-hM-E8h" id="hnc-mt-uhK"/>
+                        <outlet property="passwordLabel" destination="az2-R6-dnK" id="zDz-fM-urL"/>
+                        <outlet property="passwordTextField" destination="lIv-or-eUz" id="xxI-9c-cZv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="97"/>
+            <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
         </scene>
     </scenes>
     <resources>

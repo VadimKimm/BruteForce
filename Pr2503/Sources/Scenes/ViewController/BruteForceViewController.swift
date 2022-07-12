@@ -1,32 +1,42 @@
 import UIKit
 
 class BruteForceViewController: UIViewController {
-    @IBOutlet weak var button: UIButton!
+
+    //MARK: - Outlets -
+
+    @IBOutlet weak var changeViewColorButton: UIButton!
+    @IBOutlet weak var guessPasswordButton: UIButton!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var isBlack: Bool = false {
-        didSet {
-            if isBlack {
-                self.view.backgroundColor = .black
-            } else {
-                self.view.backgroundColor = .white
-            }
-        }
-    }
-    
-    @IBAction func onBut(_ sender: Any) {
+    //MARK: - Actions -
+
+    @IBAction func changeViewColorTapped(_ sender: Any) {
         isBlack.toggle()
     }
+    @IBAction func guessPasswordButtonTapped(_ sender: Any) {
+    }
+
+    //MARK: - Properties -
+
+    var isBlack: Bool = false {
+        didSet {
+            view.backgroundColor = isBlack ? .black : .white
+        }
+    }
+
+    //MARK: - Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.bruteForce(passwordToUnlock: "1!gr")
-        
-        // Do any additional setup after loading the view.
     }
+
+    //MARK: - Functions -
     
-    func bruteForce(passwordToUnlock: String) {
+    private func bruteForce(passwordToUnlock: String) {
         let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
 
         var password: String = ""
@@ -41,51 +51,31 @@ class BruteForceViewController: UIViewController {
         
         print(password)
     }
-}
 
-
-
-extension String {
-    var digits:      String { return "0123456789" }
-    var lowercase:   String { return "abcdefghijklmnopqrstuvwxyz" }
-    var uppercase:   String { return "ABCDEFGHIJKLMNOPQRSTUVWXYZ" }
-    var punctuation: String { return "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~" }
-    var letters:     String { return lowercase + uppercase }
-    var printable:   String { return digits + letters + punctuation }
-
-
-
-    mutating func replace(at index: Int, with character: Character) {
-        var stringArray = Array(self)
-        stringArray[index] = character
-        self = String(stringArray)
+    private func indexOf(character: Character, _ array: [String]) -> Int {
+        return array.firstIndex(of: String(character))!
     }
-}
 
-func indexOf(character: Character, _ array: [String]) -> Int {
-    return array.firstIndex(of: String(character))!
-}
-
-func characterAt(index: Int, _ array: [String]) -> Character {
-    return index < array.count ? Character(array[index])
-                               : Character("")
-}
-
-func generateBruteForce(_ string: String, fromArray array: [String]) -> String {
-    var str: String = string
-
-    if str.count <= 0 {
-        str.append(characterAt(index: 0, array))
+    private func characterAt(index: Int, _ array: [String]) -> Character {
+        return index < array.count ? Character(array[index]) : Character("")
     }
-    else {
-        str.replace(at: str.count - 1,
-                    with: characterAt(index: (indexOf(character: str.last!, array) + 1) % array.count, array))
 
-        if indexOf(character: str.last!, array) == 0 {
-            str = String(generateBruteForce(String(str.dropLast()), fromArray: array)) + String(str.last!)
+    private func generateBruteForce(_ string: String, fromArray array: [String]) -> String {
+        var str = string
+
+        if str.count <= 0 {
+            str.append(characterAt(index: 0, array))
         }
-    }
+        else {
+            str.replace(at: str.count - 1,
+                        with: characterAt(index: (indexOf(character: str.last!, array) + 1) % array.count, array))
 
-    return str
+            if indexOf(character: str.last!, array) == 0 {
+                str = String(generateBruteForce(String(str.dropLast()), fromArray: array)) + String(str.last!)
+            }
+        }
+
+        return str
+    }
 }
 
