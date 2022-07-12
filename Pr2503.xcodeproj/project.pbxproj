@@ -13,6 +13,7 @@
 		264DFEE5260D07EF0035EA15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE3260D07EF0035EA15 /* Main.storyboard */; };
 		264DFEE7260D07F00035EA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE6260D07F00035EA15 /* Assets.xcassets */; };
 		264DFEEA260D07F00035EA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */; };
+		DD6A6568287E0F1700E45A47 /* BruteForceViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */; };
 		DDC6941F287DF38A00EFBCDF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6941E287DF38A00EFBCDF /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		264DFEE6260D07F00035EA15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		264DFEE9260D07F00035EA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		264DFEEB260D07F00035EA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForceViewControllerExtension.swift; sourceTree = "<group>"; };
 		DDC6941E287DF38A00EFBCDF /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC6941E287DF38A00EFBCDF /* StringExtension.swift */,
+				DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			files = (
 				DDC6941F287DF38A00EFBCDF /* StringExtension.swift in Sources */,
 				264DFEE2260D07EF0035EA15 /* BruteForceViewController.swift in Sources */,
+				DD6A6568287E0F1700E45A47 /* BruteForceViewControllerExtension.swift in Sources */,
 				264DFEDE260D07EF0035EA15 /* AppDelegate.swift in Sources */,
 				264DFEE0260D07EF0035EA15 /* SceneDelegate.swift in Sources */,
 			);
