@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Brute Force View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="BruteForceViewController" customModule="Pr2503" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-cd-RKK">
+                                <rect key="frame" x="43" y="517" width="127" height="30"/>
+                                <state key="normal" title="Change view color"/>
+                                <connections>
+                                    <action selector="changeViewColorTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WeP-jt-RdJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nP9-hM-E8h">
+                                <rect key="frame" x="259" y="517" width="113" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Guess password"/>
+                                <connections>
+                                    <action selector="guessPasswordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YCl-WR-aWx"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-or-eUz">
+                                <rect key="frame" x="182" y="431" width="50" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="k9A-yC-5ro"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your password..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az2-R6-dnK">
+                                <rect key="frame" x="144" y="366" width="126" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TcT-bd-5SQ">
+                                <rect key="frame" x="285" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="az2-R6-dnK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="322" id="2tZ-lo-kZ9"/>
+                            <constraint firstItem="3g4-cd-RKK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="43c-Vn-GZ6"/>
+                            <constraint firstItem="TcT-bd-5SQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="394" id="PuK-cJ-25X"/>
+                            <constraint firstItem="az2-R6-dnK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vcc-gu-Fte"/>
+                            <constraint firstItem="3g4-cd-RKK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="473" id="Zx3-CR-xsb"/>
+                            <constraint firstItem="lIv-or-eUz" firstAttribute="top" secondItem="az2-R6-dnK" secondAttribute="bottom" constant="44" id="bnC-Aj-dOb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TcT-bd-5SQ" secondAttribute="trailing" constant="109" id="cYS-hu-CPW"/>
+                            <constraint firstItem="lIv-or-eUz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="czS-b1-aia"/>
+                            <constraint firstItem="nP9-hM-E8h" firstAttribute="top" secondItem="TcT-bd-5SQ" secondAttribute="bottom" constant="59" id="gEm-gH-iVX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nP9-hM-E8h" secondAttribute="trailing" constant="42" id="rmh-fx-Ag1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="TcT-bd-5SQ" id="DoN-FY-wuR"/>
+                        <outlet property="changeViewColorButton" destination="3g4-cd-RKK" id="nix-od-Gbq"/>
+                        <outlet property="guessPasswordButton" destination="nP9-hM-E8h" id="hnc-mt-uhK"/>
+                        <outlet property="passwordLabel" destination="az2-R6-dnK" id="zDz-fM-urL"/>
+                        <outlet property="passwordTextField" destination="lIv-or-eUz" id="xxI-9c-cZv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
