@@ -35,6 +35,17 @@ class BruteForceViewController: UIViewController {
     }
 
     //MARK: - Functions -
+
+    private func generatePassword() -> String {
+        let allowedCharacters: [String] = String().printable.map { String($0) }
+        var password = String()
+
+        for _ in 0...2 {
+            password += allowedCharacters.randomElement() ?? ""
+        }
+
+        return password
+    }
     
     private func bruteForce(passwordToUnlock: String) {
         let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
