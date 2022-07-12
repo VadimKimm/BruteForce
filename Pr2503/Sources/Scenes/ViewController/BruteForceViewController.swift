@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class BruteForceViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
     
     var isBlack: Bool = false {
