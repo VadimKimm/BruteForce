@@ -16,15 +16,33 @@ class BruteForceViewController: UIViewController {
         isBlack.toggle()
     }
     @IBAction func guessPasswordButtonTapped(_ sender: Any) {
+
+        let passwordToUnlock = generatePassword()
+
+        let bruteForceItem = DispatchWorkItem {
+            self.bruteForce(passwordToUnlock: passwordToUnlock)
+        }
+
+        queue.async(execute: bruteForceItem)
+
+        passwordLabel.text = Strings.passwordLabelText
+        passwordTextField.text = passwordToUnlock
+        passwordTextField.isSecureTextEntry = true
     }
 
     //MARK: - Properties -
 
-    var isBlack: Bool = false {
+    private lazy var isBlack: Bool = false {
         didSet {
             view.backgroundColor = isBlack ? .black : .white
+            passwordTextField.backgroundColor = isBlack ? .black : .white
+            passwordTextField.textColor = isBlack ? .white : .black
+            passwordLabel.textColor = isBlack ? .white : .black
+            activityIndicator.color = isBlack ? .white : .black
         }
     }
+
+    private let queue = DispatchQueue(label: "customQueue", qos: .userInitiated)
 
     //MARK: - Lifecycle -
     
@@ -52,19 +70,28 @@ class BruteForceViewController: UIViewController {
     }
     
     private func bruteForce(passwordToUnlock: String) {
-        let ALLOWED_CHARACTERS:   [String] = String().printable.map { String($0) }
+        let allowedCharacters = String().printable.map { String($0) }
 
-        var password: String = ""
+        var password = ""
 
         // Will strangely ends at 0000 instead of ~~~
         while password != passwordToUnlock { // Increase MAXIMUM_PASSWORD_SIZE value for more
-            password = generateBruteForce(password, fromArray: ALLOWED_CHARACTERS)
-//             Your stuff here
+            password = generateBruteForce(password, fromArray: allowedCharacters)
+
+            DispatchQueue.main.async {
+                self.activityIndicator.startAnimating()
+            }
+
             print(password)
-            // Your stuff here
+        }
+
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.passwordLabel.text = "Я думаю, что это: \(password)"
+            self.passwordTextField.isSecureTextEntry = false
         }
         
-        print(password)
+        print("Загаданный пароль: \(password)")
     }
 
     private func indexOf(character: Character, _ array: [String]) -> Int {
