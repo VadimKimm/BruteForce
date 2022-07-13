@@ -57,6 +57,24 @@ class BruteForceViewController: UIViewController {
 
     //MARK: - Properties -
 
+    enum Status {
+        case initial
+        case running
+        case finished
+    }
+
+    private var bruteStatus = Status.initial {
+        didSet {
+            switch self.bruteStatus {
+            case .initial:
+                imageView.image = UIImage.gifImageWithName("clippy-initial")
+            case .running:
+                imageView.image = UIImage.gifImageWithName("clippy-running")
+            case .finished:
+                imageView.image = UIImage.gifImageWithName("clippy-finished")
+            }
+        }
+    }
 
     private var isBlack = false {
         didSet {
@@ -89,6 +107,35 @@ class BruteForceViewController: UIViewController {
         passwordTextField.isSecureTextEntry = true
         stopButton.isEnabled = false
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
+
+    private func bruteIsRunning() {
+        passwordLabel.text = Strings.passwordLabelTextInitial
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.isEnabled = false
+        stopButton.isEnabled = true
+        guessPasswordButton.isEnabled = false
+        bruteStatus = .running
+    }
+
+    private func bruteIsFinished() {
+        activityIndicator.stopAnimating()
+        passwordTextField.isSecureTextEntry = false
+        passwordTextField.isEnabled = true
+        stopButton.isEnabled = false
+        guessPasswordButton.isEnabled = true
+        bruteStatus = .finished
+    }
+
+    private func bruteIsInterrupted() {
+        passwordLabel.text = Strings.passwordLabelTextFailed
+        stopButton.isEnabled = false
+        guessPasswordButton.isEnabled = true
+        bruteStatus = .initial
     }
 }
 
