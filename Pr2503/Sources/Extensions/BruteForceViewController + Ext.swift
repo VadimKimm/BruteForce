@@ -1,5 +1,5 @@
 //
-//  BruteForceViewControllerExtension.swift
+//  BruteForceViewController + Ext.swift
 //  Pr2503
 //
 //  Created by Vadim Kim on 12.07.2022.
@@ -9,7 +9,9 @@ import UIKit
 
 extension BruteForceViewController {
     enum Strings {
-        static let passwordLabelText = "Дай мне угадать пароль..."
+        static let passwordLabelTextInitial = "Let me guess your password..."
+        static let passwordLabelTextFailed = "Password not cracked"
+        static let passwordLabelTextSucceded = "I believe your password is"
     }
 }
 
@@ -18,7 +20,7 @@ extension BruteForceViewController {
 extension BruteForceViewController {
 
     func generatePassword() -> String {
-        let allowedCharacters: [String] = String().printable.map { String($0) }
+        let allowedCharacters = String().printable.map { String($0) }
         var password = String()
 
         for _ in 0...2 {
@@ -30,27 +32,30 @@ extension BruteForceViewController {
 
     func bruteForce(passwordToUnlock: String) {
         let allowedCharacters = String().printable.map { String($0) }
-
         var password = ""
 
         // Will strangely ends at 0000 instead of ~~~
-        while password != passwordToUnlock { // Increase MAXIMUM_PASSWORD_SIZE value for more
+        while password != passwordToUnlock {
+
+            guard let item = self.bruteForceWorkItem, !item.isCancelled else { break }
+
             password = generateBruteForce(password, fromArray: allowedCharacters)
 
             DispatchQueue.main.async {
                 self.activityIndicator.startAnimating()
+                self.passwordLabel.text = password
             }
 
             print(password)
         }
 
+        guard password == passwordToUnlock else { return }
+
         DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-            self.passwordLabel.text = "Я думаю, что это: \(password)"
-            self.passwordTextField.isSecureTextEntry = false
+            self.passwordLabel.text = "\(Strings.passwordLabelTextSucceded) \(password)"
         }
 
-        print("Загаданный пароль: \(password)")
+        print("Password to unlock: \(passwordToUnlock)")
     }
 
     private func indexOf(character: Character, _ array: [String]) -> Int {
