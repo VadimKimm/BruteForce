@@ -14,8 +14,8 @@
 		264DFEE7260D07F00035EA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE6260D07F00035EA15 /* Assets.xcassets */; };
 		264DFEEA260D07F00035EA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */; };
 		DD6A6568287E0F1700E45A47 /* BruteForceViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */; };
-		DDC6941F287DF38A00EFBCDF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6941E287DF38A00EFBCDF /* StringExtension.swift */; };
 		DD9BD7CE287EEC1800927B94 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9BD7CD287EEC1800927B94 /* UIImage+Ext.swift */; };
+		DDC6941F287DF38A00EFBCDF /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6941E287DF38A00EFBCDF /* String + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 		264DFEE9260D07F00035EA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		264DFEEB260D07F00035EA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForceViewControllerExtension.swift; sourceTree = "<group>"; };
-		DDC6941E287DF38A00EFBCDF /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		DD9BD7CD287EEC1800927B94 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		DDC6941E287DF38A00EFBCDF /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +125,8 @@
 		DDC6941D287DF34A00EFBCDF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DDC6941E287DF38A00EFBCDF /* StringExtension.swift */,
 				DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */,
+				DDC6941E287DF38A00EFBCDF /* String + Ext.swift */,
 				DD9BD7CD287EEC1800927B94 /* UIImage+Ext.swift */,
 			);
 			path = Extensions;
@@ -202,7 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC6941F287DF38A00EFBCDF /* StringExtension.swift in Sources */,
+				DDC6941F287DF38A00EFBCDF /* String + Ext.swift in Sources */,
 				264DFEE2260D07EF0035EA15 /* BruteForceViewController.swift in Sources */,
 				DD6A6568287E0F1700E45A47 /* BruteForceViewControllerExtension.swift in Sources */,
 				DD9BD7CE287EEC1800927B94 /* UIImage+Ext.swift in Sources */,
