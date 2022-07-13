@@ -9,12 +9,15 @@ class BruteForceViewController: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+
     //MARK: - Actions -
 
-    @IBAction func changeViewColorTapped(_ sender: Any) {
+    @IBAction func changeViewColorButtonTapped(_ sender: Any) {
         isBlack.toggle()
     }
+
     @IBAction func guessPasswordButtonTapped(_ sender: Any) {
 
         let passwordToUnlock = generatePassword()
@@ -24,10 +27,12 @@ class BruteForceViewController: UIViewController {
         }
 
         queue.async(execute: bruteForceItem)
+    }
 
         passwordLabel.text = Strings.passwordLabelText
         passwordTextField.text = passwordToUnlock
         passwordTextField.isSecureTextEntry = true
+    @IBAction func stopButtonTapped(_ sender: Any) {
     }
 
     //MARK: - Properties -
