@@ -20,18 +20,30 @@ class BruteForceViewController: UIViewController {
 
     @IBAction func guessPasswordButtonTapped(_ sender: Any) {
 
-        let passwordToUnlock = generatePassword()
+        var passwordToUnlock: String
+        let textFieldPassword = passwordTextField.text ?? ""
 
-        let bruteForceItem = DispatchWorkItem {
+        if textFieldPassword == "" || textFieldPassword == previousPassword {
+            passwordToUnlock = generatePassword()
+        } else {
+            passwordToUnlock = textFieldPassword
+        }
+
+        bruteIsRunning()
+        passwordTextField.text = passwordToUnlock
+        previousPassword = passwordToUnlock
+
+        bruteForceWorkItem = DispatchWorkItem {
             self.bruteForce(passwordToUnlock: passwordToUnlock)
         }
 
-        queue.async(execute: bruteForceItem)
+        bruteForceWorkItem?.notify(queue: DispatchQueue.main) {
+            self.bruteIsFinished()
+        }
+
+        queue.async(execute: bruteForceWorkItem!)
     }
 
-        passwordLabel.text = Strings.passwordLabelText
-        passwordTextField.text = passwordToUnlock
-        passwordTextField.isSecureTextEntry = true
     @IBAction func stopButtonTapped(_ sender: Any) {
     }
 
@@ -47,7 +59,9 @@ class BruteForceViewController: UIViewController {
         }
     }
 
-    private let queue = DispatchQueue(label: "customQueue", qos: .userInitiated)
+    private var previousPassword = ""
+    private let queue = DispatchQueue(label: "customQueue", qos: .userInitiated, attributes: .concurrent)
+    var bruteForceWorkItem: DispatchWorkItem?
 
     //MARK: - Lifecycle -
     
