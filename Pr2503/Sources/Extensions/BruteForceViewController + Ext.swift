@@ -15,6 +15,16 @@ extension BruteForceViewController {
     }
 }
 
+//MARK: - UITextFieldDelegate -
+
+extension BruteForceViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.isEditing {
+            textField.isSecureTextEntry = true
+        }
+    }
+}
+
 //MARK: - Brute Forcing functions -
 
 extension BruteForceViewController {

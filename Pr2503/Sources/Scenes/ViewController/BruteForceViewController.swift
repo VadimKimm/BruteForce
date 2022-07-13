@@ -76,6 +76,8 @@ class BruteForceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+
+        passwordTextField.delegate = self
     }
 
     //MARK: - Functions -
