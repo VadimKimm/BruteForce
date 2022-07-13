@@ -57,11 +57,10 @@ class BruteForceViewController: UIViewController {
 
     //MARK: - Properties -
 
-    private lazy var isBlack: Bool = false {
+
+    private var isBlack = false {
         didSet {
             view.backgroundColor = isBlack ? .black : .white
-            passwordTextField.backgroundColor = isBlack ? .black : .white
-            passwordTextField.textColor = isBlack ? .white : .black
             passwordLabel.textColor = isBlack ? .white : .black
             activityIndicator.color = isBlack ? .white : .black
         }
@@ -83,8 +82,13 @@ class BruteForceViewController: UIViewController {
     //MARK: - Functions -
 
     private func setupView() {
-        passwordLabel.text = Strings.passwordLabelText
+        passwordLabel.text = Strings.passwordLabelTextInitial
         activityIndicator.hidesWhenStopped = true
+        passwordTextField.clearButtonMode = .whileEditing
+        passwordTextField.clearsOnBeginEditing = true
+        passwordTextField.isSecureTextEntry = true
+        stopButton.isEnabled = false
+    }
     }
 }
 
