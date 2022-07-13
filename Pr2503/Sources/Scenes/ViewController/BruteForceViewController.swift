@@ -45,6 +45,14 @@ class BruteForceViewController: UIViewController {
     }
 
     @IBAction func stopButtonTapped(_ sender: Any) {
+        queue.async {
+            self.bruteForceWorkItem?.cancel()
+            print("Performing interrupted")
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            self.bruteIsInterrupted()
+        }
     }
 
     //MARK: - Properties -
