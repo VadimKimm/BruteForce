@@ -1,5 +1,5 @@
 //
-//  StringExtension.swift
+//  String + Ext.swift
 //  Pr2503
 //
 //  Created by Vadim Kim on 12.07.2022.

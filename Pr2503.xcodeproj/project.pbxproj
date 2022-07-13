@@ -13,8 +13,12 @@
 		264DFEE5260D07EF0035EA15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE3260D07EF0035EA15 /* Main.storyboard */; };
 		264DFEE7260D07F00035EA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE6260D07F00035EA15 /* Assets.xcassets */; };
 		264DFEEA260D07F00035EA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */; };
-		DD6A6568287E0F1700E45A47 /* BruteForceViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */; };
-		DDC6941F287DF38A00EFBCDF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6941E287DF38A00EFBCDF /* StringExtension.swift */; };
+		DD6A6568287E0F1700E45A47 /* BruteForceViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A6567287E0F1700E45A47 /* BruteForceViewController + Ext.swift */; };
+		DD9BD7CE287EEC1800927B94 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9BD7CD287EEC1800927B94 /* UIImage+Ext.swift */; };
+		DD9BD7D1287EED7000927B94 /* clippy-finished.gif in Resources */ = {isa = PBXBuildFile; fileRef = DD9BD7D0287EED7000927B94 /* clippy-finished.gif */; };
+		DD9BD7D5287F0E8F00927B94 /* clippy-initial.gif in Resources */ = {isa = PBXBuildFile; fileRef = DD9BD7D4287F0E8F00927B94 /* clippy-initial.gif */; };
+		DD9BD7D7287F10C700927B94 /* clippy-running.gif in Resources */ = {isa = PBXBuildFile; fileRef = DD9BD7D6287F10C700927B94 /* clippy-running.gif */; };
+		DDC6941F287DF38A00EFBCDF /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6941E287DF38A00EFBCDF /* String + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +30,12 @@
 		264DFEE6260D07F00035EA15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		264DFEE9260D07F00035EA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		264DFEEB260D07F00035EA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruteForceViewControllerExtension.swift; sourceTree = "<group>"; };
-		DDC6941E287DF38A00EFBCDF /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		DD6A6567287E0F1700E45A47 /* BruteForceViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BruteForceViewController + Ext.swift"; sourceTree = "<group>"; };
+		DD9BD7CD287EEC1800927B94 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		DD9BD7D0287EED7000927B94 /* clippy-finished.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "clippy-finished.gif"; sourceTree = "<group>"; };
+		DD9BD7D4287F0E8F00927B94 /* clippy-initial.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "clippy-initial.gif"; sourceTree = "<group>"; };
+		DD9BD7D6287F10C700927B94 /* clippy-running.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "clippy-running.gif"; sourceTree = "<group>"; };
+		DDC6941E287DF38A00EFBCDF /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,16 @@
 			path = Pr2503;
 			sourceTree = "<group>";
 		};
+		DD9BD7CF287EEC5B00927B94 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DD9BD7D6287F10C700927B94 /* clippy-running.gif */,
+				DD9BD7D4287F0E8F00927B94 /* clippy-initial.gif */,
+				DD9BD7D0287EED7000927B94 /* clippy-finished.gif */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		DDC69417287DF18F00EFBCDF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +97,7 @@
 		DDC69418287DF19900EFBCDF /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
+				DD9BD7CF287EEC5B00927B94 /* Images */,
 				264DFEE8260D07F00035EA15 /* LaunchScreen.storyboard */,
 				264DFEE6260D07F00035EA15 /* Assets.xcassets */,
 				264DFEEB260D07F00035EA15 /* Info.plist */,
@@ -123,8 +142,9 @@
 		DDC6941D287DF34A00EFBCDF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DDC6941E287DF38A00EFBCDF /* StringExtension.swift */,
-				DD6A6567287E0F1700E45A47 /* BruteForceViewControllerExtension.swift */,
+				DD6A6567287E0F1700E45A47 /* BruteForceViewController + Ext.swift */,
+				DDC6941E287DF38A00EFBCDF /* String + Ext.swift */,
+				DD9BD7CD287EEC1800927B94 /* UIImage+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,8 +207,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				264DFEEA260D07F00035EA15 /* LaunchScreen.storyboard in Resources */,
+				DD9BD7D7287F10C700927B94 /* clippy-running.gif in Resources */,
 				264DFEE7260D07F00035EA15 /* Assets.xcassets in Resources */,
+				DD9BD7D1287EED7000927B94 /* clippy-finished.gif in Resources */,
 				264DFEE5260D07EF0035EA15 /* Main.storyboard in Resources */,
+				DD9BD7D5287F0E8F00927B94 /* clippy-initial.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,9 +222,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC6941F287DF38A00EFBCDF /* StringExtension.swift in Sources */,
+				DDC6941F287DF38A00EFBCDF /* String + Ext.swift in Sources */,
 				264DFEE2260D07EF0035EA15 /* BruteForceViewController.swift in Sources */,
-				DD6A6568287E0F1700E45A47 /* BruteForceViewControllerExtension.swift in Sources */,
+				DD6A6568287E0F1700E45A47 /* BruteForceViewController + Ext.swift in Sources */,
+				DD9BD7CE287EEC1800927B94 /* UIImage+Ext.swift in Sources */,
 				264DFEDE260D07EF0035EA15 /* AppDelegate.swift in Sources */,
 				264DFEE0260D07EF0035EA15 /* SceneDelegate.swift in Sources */,
 			);
