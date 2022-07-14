@@ -37,11 +37,13 @@ class BruteForceViewController: UIViewController {
             self.bruteForce(passwordToUnlock: passwordToUnlock)
         }
 
-        bruteForceWorkItem?.notify(queue: DispatchQueue.main) {
+        guard let bruteForceWorkItem = bruteForceWorkItem else { return }
+
+        bruteForceWorkItem.notify(queue: DispatchQueue.main) {
             self.bruteIsFinished()
         }
 
-        queue.async(execute: bruteForceWorkItem!)
+        queue.async(execute: bruteForceWorkItem)
     }
 
     @IBAction func stopButtonTapped(_ sender: Any) {
